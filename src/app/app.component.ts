@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PushService } from './services/push.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor( private pushService: PushService) {
+    this.initializeApp();
+  }
+
+  initializeApp(){
+    console.log('IniciandoApp');
+    //** EL SERVICIO NO FUNCIONA EN MODO DE DESARROLLO SOLO EN EL DISPOSITIVO NATIVO */
+    // this.pushService.OneSignalInit();
+  }
+  
 }
